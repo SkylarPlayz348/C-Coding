@@ -27,8 +27,5 @@ int main() {
             printf("\nWelcome\n");
             return 0;
         }
-    } else {
-        printf("Welcome Back\n");
-        return 0;
     }
 }
