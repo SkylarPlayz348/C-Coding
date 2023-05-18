@@ -1,4 +1,5 @@
 // Here's an example of how to make a function in C
+/*Note this does not work as intended atm*/
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -8,24 +9,31 @@ int inputU;
 int username = 12345;
 
 bool login(int uinput) {
-    if (totalAttempts != 0) {
-        if (uinput = username) {
+    if (totalAttempts != 1) {
+        if (uinput == username) {
             loggedIn = true;
-            return loggedIn;
+            return true;
         } else {
-            totalAttempts = -- totalAttempts;
-            printf("Try Again");
-            return loggedIn;
+            printf("Try Again\n");
+            return false;
         }
     }
 }
 
 int main() {
-    if (!loggedIn) {
-        printf("Username(5 digits): ");
-        if (login(scanf("%i", &inputU))){
-            printf("\nWelcome\n");
-            return 0;
+    while(!loggedIn) {
+        switch (totalAttempts)
+        {
+        case 1:
+            printf("Restart to Try Again\n");
+            loggedIn = true;
+            break;
+        default:
+            printf("Username(5 digits): ");
+            scanf("%d", &inputU);
+            login(inputU);
+            break;
         }
     }
+    return 0;
 }
